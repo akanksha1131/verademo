@@ -1,0 +1,8 @@
+name: custom-java-queries
+version: 0.0.1
+description: Custom CodeQL queries for Java
+library: false
+extractor: java
+suites: ./suites
+dependencies:
+  codeql/java-all: "*"
