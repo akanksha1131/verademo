@@ -3,8 +3,8 @@ REM Define the database path
 set DB_PATH=C:\Users\AKANKSHA KALE\AppData\Roaming\Code\User\workspaceStorage\4ce96addddc27736cd7edc303aa8a1a2\GitHub.vscode-codeql\akanksha1131-verademo-1\java
 
 REM Define the paths for the two queries
-set QUERY_PATH_1=C:\Users\AKANKSHA KALE\Desktop\verademo\codeql-custom-queries-java\example7.ql
-set QUERY_PATH_2=C:\Users\AKANKSHA KALE\Desktop\verademo\codeql-custom-queries-java\example8.ql
+set QUERY_PATH_1=C:\Users\AKANKSHA KALE\Desktop\verademo\codeql-custom-queries-java\sourcecandidate3.ql
+set QUERY_PATH_2=C:\Users\AKANKSHA KALE\Desktop\verademo\codeql-custom-queries-java\sinkcandidate3.ql
 
 REM Define the output files for each query
 set CSV_REPORT_FILE_1=C:\Users\AKANKSHA KALE\Desktop\verademo\source_candidates.csv

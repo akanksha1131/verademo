@@ -1,0 +1,137 @@
+{
+    "response": [
+        {
+            "package": "com.veracode.verademo.commands",
+            "class": "ListenCommand",
+            "method": "execute",
+            "signature": "com.veracode.verademo.commands.ListenCommand.execute(java.lang.String)",
+            "tainted input": "java.lang.String parameter"
+        },
+        {
+            "package": "com.veracode.verademo.commands",
+            "class": "RemoveAccountCommand",
+            "method": "execute",
+            "signature": "com.veracode.verademo.commands.RemoveAccountCommand.execute(java.lang.String)",
+            "tainted input": "java.lang.String parameter"
+        },
+        {
+            "package": "com.veracode.verademo.controller",
+            "class": "BlabController",
+            "method": "processBlabbers",
+            "signature": "com.veracode.verademo.controller.BlabController.processBlabbers(java.lang.String,java.lang.String,org.springframework.ui.Model,javax.servlet.http.HttpServletRequest)",
+            "tainted input": "java.lang.String parameters"
+        },
+        {
+            "package": "com.veracode.verademo.controller",
+            "class": "ToolsController",
+            "method": "tools",
+            "signature": "com.veracode.verademo.controller.ToolsController.tools(java.lang.String,java.lang.String,org.springframework.ui.Model)",
+            "tainted input": "java.lang.String parameters"
+        },
+        {
+            "package": "com.veracode.verademo.controller",
+            "class": "UserController",
+            "method": "processProfile",
+            "signature": "com.veracode.verademo.controller.UserController.processProfile(java.lang.String,java.lang.String,java.lang.String,org.springframework.web.multipart.MultipartFile,org.springframework.web.multipart.MultipartHttpServletRequest,javax.servlet.http.HttpServletResponse)",
+            "tainted input": "java.lang.String parameters"
+        },
+        {
+            "package": "com.veracode.verademo.controller",
+            "class": "UserController",
+            "method": "processRegisterFinish",
+            "signature": "com.veracode.verademo.controller.UserController.processRegisterFinish(java.lang.String,java.lang.String,java.lang.String,java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,org.springframework.ui.Model)",
+            "tainted input": "java.lang.String parameters"
+        },
+        {
+            "package": "com.veracode.verademo.controller",
+            "class": "UserController",
+            "method": "processRegister",
+            "signature": "com.veracode.verademo.controller.UserController.processRegister(java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,org.springframework.ui.Model)",
+            "tainted input": "java.lang.String parameter"
+        },
+        {
+            "package": "com.veracode.verademo.model",
+            "class": "Blabber",
+            "method": "setBlabName",
+            "signature": "com.veracode.verademo.model.Blabber.setBlabName(java.lang.String)",
+            "tainted input": "java.lang.String parameter"
+        },
+        {
+            "package": "com.veracode.verademo.model",
+            "class": "Blabber",
+            "method": "setRealName",
+            "signature": "com.veracode.verademo.model.Blabber.setRealName(java.lang.String)",
+            "tainted input": "java.lang.String parameter"
+        },
+        {
+            "package": "com.veracode.verademo.model",
+            "class": "Blabber",
+            "method": "setUsername",
+            "signature": "com.veracode.verademo.model.Blabber.setUsername(java.lang.String)",
+            "tainted input": "java.lang.String parameter"
+        },
+        {
+            "package": "com.veracode.verademo.utils",
+            "class": "User",
+            "method": "setPassword",
+            "signature": "com.veracode.verademo.utils.User.setPassword(java.lang.String)",
+            "tainted input": "java.lang.String parameter"
+        },
+        {
+            "package": "com.veracode.verademo.controller",
+            "class": "UserController",
+            "method": "showPasswordHint",
+            "signature": "com.veracode.verademo.controller.UserController.showPasswordHint(java.lang.String)",
+            "tainted input": "java.lang.String parameter"
+        },
+        {
+            "package": "com.veracode.verademo.controller",
+            "class": "UserController",
+            "method": "processLogin",
+            "signature": "com.veracode.verademo.controller.UserController.processLogin(java.lang.String,java.lang.String,java.lang.String,java.lang.String,org.springframework.ui.Model,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)",
+            "tainted input": "java.lang.String parameters"
+        },
+        {
+            "package": "com.veracode.verademo.controller",
+            "class": "UserController",
+            "method": "showLogin",
+            "signature": "com.veracode.verademo.controller.UserController.showLogin(java.lang.String,java.lang.String,org.springframework.ui.Model,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)",
+            "tainted input": "java.lang.String parameters"
+        },
+        {
+            "package": "com.veracode.verademo.controller",
+            "class": "ToolsController",
+            "method": "fortune",
+            "signature": "com.veracode.verademo.controller.ToolsController.fortune(java.lang.String)",
+            "tainted input": "java.lang.String parameter"
+        },
+        {
+            "package": "com.veracode.verademo.controller",
+            "class": "ToolsController",
+            "method": "ping",
+            "signature": "com.veracode.verademo.controller.ToolsController.ping(java.lang.String)",
+            "tainted input": "java.lang.String parameter"
+        },
+        {
+            "package": "com.veracode.verademo.controller",
+            "class": "UserController",
+            "method": "getProfileImageNameFromUsername",
+            "signature": "com.veracode.verademo.controller.UserController.getProfileImageNameFromUsername(java.lang.String)",
+            "tainted input": "java.lang.String parameter"
+        },
+        {
+            "package": "com.veracode.verademo.controller",
+            "class": "UserController",
+            "method": "usernameExists",
+            "signature": "com.veracode.verademo.controller.UserController.usernameExists(java.lang.String)",
+            "tainted input": "java.lang.String parameter"
+        },
+        {
+            "package": "com.veracode.verademo.controller",
+            "class": "UserController",
+            "method": "emailUser",
+            "signature": "com.veracode.verademo.controller.UserController.emailUser(java.lang.String)",
+            "tainted input": "java.lang.String parameter"
+        }
+    ]
+}

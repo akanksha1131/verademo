@@ -1,0 +1,11 @@
+{
+    "response": [
+        {
+            "package": "com.veracode.verademo.utils",
+            "class": "Constants",
+            "method": "getJdbcConnectionString",
+            "signature": "com.veracode.verademo.utils.Constants.getJdbcConnectionString()",
+            "tainted input": "JDBC connection string, potentially influenced by user input"
+        }
+    ]
+}
