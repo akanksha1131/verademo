@@ -1,16 +1,15 @@
 /**
  * Enhanced query to detect sinks where unvalidated data could lead to vulnerabilities
  *
- * @name sink-detect-3
+ * @name sink-detect-4
  * @kind problem
- * @problem.severity warning
+ * @problem.severity warnings
  * @id java/example/sink-detection
  */
 
 import java
 import semmle.code.java.dataflow.DataFlow
 
-// Define sinks where unvalidated data could lead to vulnerabilities
 predicate isSink(DataFlow::Node snk) {
   // Detect file access sinks
   exists(MethodAccess fileAccess |

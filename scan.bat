@@ -4,7 +4,7 @@ set DB_PATH=C:\Users\AKANKSHA KALE\AppData\Roaming\Code\User\workspaceStorage\4c
 
 REM Define the paths for the two queries
 set QUERY_PATH_1=C:\Users\AKANKSHA KALE\Desktop\verademo\codeql-custom-queries-java\sourcecandidate3.ql
-set QUERY_PATH_2=C:\Users\AKANKSHA KALE\Desktop\verademo\codeql-custom-queries-java\sinkcandidate3.ql
+set QUERY_PATH_2=C:\Users\AKANKSHA KALE\Desktop\verademo\codeql-custom-queries-java\sinkcandidate4.ql
 
 REM Define the output files for each query
 set CSV_REPORT_FILE_1=C:\Users\AKANKSHA KALE\Desktop\verademo\source_candidates.csv
