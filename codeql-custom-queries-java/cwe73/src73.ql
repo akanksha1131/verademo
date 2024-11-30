@@ -1,6 +1,6 @@
 /**
  * Enhanced query to detect sources of user-controlled input
- * @name source-detect-1
+ * @name 73-src
  * @kind problem
  * @problem.severity warning
  * @id java/example/source-detection
@@ -9,31 +9,25 @@
  import java
  import semmle.code.java.dataflow.DataFlow
  
- // Define sources of user-controlled input, tailored to specific taint sources
+ class RequestMappingAnnotation extends Annotation {
+  RequestMappingAnnotation() {
+    this.getType().hasQualifiedName("org.springframework.web.bind.annotation", "RequestMapping")
+  }
+}
+
+// Define a class for methods annotated with @RequestMapping
+class RequestMappingMethod extends Method {
+  RequestMappingMethod() { this.getAnAnnotation() instanceof RequestMappingAnnotation }
+}
  predicate isSource(DataFlow::Node src, string sourceType, string sourceName, string sourceDataType) {
    // Parameters commonly associated with CWEs
-   exists(Parameter p |
-     p.getName() in [
-       "username", "password", "remember", "target", "realName",
-       "blabName", "blabberUsername", "command", "cpassword",
-       "host", "fortuneFile", "count", "length", "imageName"
-     ] and
+   exists(RequestMappingMethod method, Parameter p |
+    p = method.getParameter(_) and
+    p.getName() in ["username", "imageName"] and
      src.asParameter() = p and
      sourceType = "Parameter" and
      sourceName = p.getName() and
      sourceDataType = p.getType().toString()
-   ) or
-   // Method calls for cookies and session IDs
-   exists(MethodAccess access |
-     access.getMethod().getDeclaringType().getName() = "javax.servlet.http.HttpServletRequest" and
-     (
-       access.getMethod().hasName(["getCookies", "getSession", "getId"]) or
-       access.getMethod().hasName("getCookieFromRequestByName")
-     ) and
-     src.asExpr() = access and
-     sourceType = "MethodAccess" and
-     sourceName = access.getMethod().getName() and
-     sourceDataType = access.getType().toString()
    )
  }
  

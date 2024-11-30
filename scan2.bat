@@ -25,7 +25,7 @@ if exist "%REPORT_FILE_1%" (
 
 REM Step 3: Run analysis for each query and generate sarif reports
 echo Finding Paths
-"C:\Users\AKANKSHA KALE\Downloads\codeql-bundle-win64\codeql\codeql.exe" database analyze --rerun "%DB_PATH%" "%QUERY_PATH_1%" --format=sarif-latest --output="%REPORT_FILE_1%"
+"C:\Users\AKANKSHA KALE\Downloads\codeql-bundle-win64\codeql\codeql.exe" database analyze --rerun "%DB_PATH%" "%QUERY_PATH_1%" --format=sarif-latest --output="%REPORT_FILE_1%" --sarif-add-snippets
 
 REM Step 4: Notify the user that the analyses are complete
 echo Analysis complete. Reports generated as:

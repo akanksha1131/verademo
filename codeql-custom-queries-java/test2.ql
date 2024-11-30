@@ -2,7 +2,7 @@
  * ...
  *
  * @kind path-problem
- * @name Path3
+ * @name Path-test
  * @id java/example/path-detection
  * ...
  */
@@ -52,16 +52,21 @@ module MyFlowConfiguration implements DataFlow::ConfigSig {
       snk.asExpr() = sqlMethod.getAnArgument() // Select arguments
     )
     or
-    // Detect command execution sinks
-    exists(MethodAccess cmdExec |
-      cmdExec.getMethod().getDeclaringType().getName() = "java.lang.Runtime" and
-      cmdExec.getMethod().hasName("exec")
-      or
-      (
-        cmdExec.getMethod().getDeclaringType().getName() = "java.lang.ProcessBuilder" and
-        cmdExec.getMethod().hasName("start")
-      ) and
-      snk.asExpr() = cmdExec.getAnArgument() // Select arguments
+    // Detect Runtime.getRuntime().exec()
+    exists(MethodAccess runtimeExec |
+      runtimeExec.getMethod().getDeclaringType().getName() = "java.lang.Runtime" and
+      runtimeExec.getMethod().hasName("exec") and
+      snk.asExpr() = runtimeExec.getAnArgument()
+    )
+    or
+    // Detect Runtime.getRuntime().exec(new String[] { ... })
+    exists(MethodAccess runtimeArrayExec |
+      runtimeArrayExec.getMethod().getDeclaringType().getName() = "java.lang.Runtime" and
+      runtimeArrayExec.getMethod().hasName("exec") and
+      exists(ArrayCreationExpr arrayExpr |
+        runtimeArrayExec.getAnArgument() = arrayExpr and
+        arrayExpr.toString().matches(".*bash.*ping.*")
+      )
     )
     or
     // Detect object stream access sinks
@@ -69,6 +74,13 @@ module MyFlowConfiguration implements DataFlow::ConfigSig {
       objectStreamAccess.getMethod().getDeclaringType().getName() = "java.io.ObjectInputStream" and
       objectStreamAccess.getMethod().hasName("readObject") and
       snk.asExpr() = objectStreamAccess.getAnArgument() // Select arguments
+    )
+    or
+    // Detect javax.mail.Message.setSubject()
+    exists(MethodAccess emailSubject |
+      emailSubject.getMethod().getDeclaringType().getName() = "javax.mail.Message" and
+      emailSubject.getMethod().hasName("setSubject") and
+      snk.asExpr() = emailSubject.getAnArgument()
     )
     or
     // Detect format method sinks
@@ -94,13 +106,19 @@ module MyFlowConfiguration implements DataFlow::ConfigSig {
       snk.asExpr() = loggerMethod.getAnArgument() // Select arguments
     )
     or
-    // Detect file input stream sinks
-    exists(MethodAccess fileIO |
-      fileIO.getMethod().getDeclaringType().getName() = "java.io.FileInputStream" and
-      fileIO.getMethod().hasName("FileInputStream") and
-      snk.asExpr() = fileIO.getAnArgument() // Select arguments
+    // Detect InputStream inputStream = new FileInputStream(downloadFile)
+    exists(MethodAccess fileInputStream |
+      fileInputStream.getMethod().getDeclaringType().getName() = "java.io.FileInputStream" and
+      fileInputStream.getMethod().hasName("FileInputStream") and
+      snk.asExpr() = fileInputStream.getAnArgument()
     )
-     
+    or
+    // Detect file.transferTo(new File(path))
+    exists(MethodAccess fileTransfer |
+      fileTransfer.getMethod().getDeclaringType().getName() = "java.io.File" and
+      fileTransfer.getMethod().hasName("transferTo") and
+      snk.asExpr() = fileTransfer.getAnArgument()
+    )
   }
 }
 

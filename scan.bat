@@ -30,7 +30,7 @@ if exist "%CSV_REPORT_FILE_2%" (
 
 REM Step 3: Run analysis for each query and generate CSV reports
 echo Running analysis for example2.ql and generating CSV report...
-"C:\Users\AKANKSHA KALE\Downloads\codeql-bundle-win64\codeql\codeql.exe" database analyze --rerun "%DB_PATH%" "%QUERY_PATH_1%" --format=csv --output="%CSV_REPORT_FILE_1%"
+"C:\Users\AKANKSHA KALE\Downloads\codeql-bundle-win64\codeql\codeql.exe" database analyze --rerun "%DB_PATH%" "%QUERY_PATH_1%" --format=csv --output="%CSV_REPORT_FILE_1%" 
 
 echo Running analysis for example3.ql and generating CSV report...
 "C:\Users\AKANKSHA KALE\Downloads\codeql-bundle-win64\codeql\codeql.exe" database analyze --rerun "%DB_PATH%" "%QUERY_PATH_2%" --format=csv --output="%CSV_REPORT_FILE_2%"

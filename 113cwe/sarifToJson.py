@@ -2,8 +2,8 @@ import json
 import os  # Import os module for file checks
 
 # Input and output file paths
-input_file = r"C:\Users\AKANKSHA KALE\Desktop\verademo\path.sarif"  # Use raw string
-output_file = r"C:\Users\AKANKSHA KALE\Desktop\verademo\paths.json"  # Use raw string
+input_file = r"C:\Users\AKANKSHA KALE\Desktop\verademo\113cwe\sarifToJson.py"  # Use raw string
+output_file = r"C:\Users\AKANKSHA KALE\Desktop\verademo\113cwe\paths113.json"  # Use raw string
 
 # Clear the output file if it exists and is not empty
 if os.path.exists(output_file) and os.path.getsize(output_file) > 0:
